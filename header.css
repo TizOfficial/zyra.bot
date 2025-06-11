@@ -1,0 +1,171 @@
+/* --- Header & Navigation --- */
+header {
+    background-color: rgba(16, 16, 16, 0.9); /* Darker, slightly transparent */
+    backdrop-filter: blur(12px); /* Stronger blur */
+    border-bottom: 1px solid #222; /* Darker border */
+    /* Use header height variable */
+    height: var(--header-height);
+    display: flex; /* Use flex for easier vertical alignment */
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Stronger shadow */
+    transition: background-color 0.3s ease; /* Add transition for potential future scroll effect */
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ensure nav takes full width of container */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1.6rem; /* Slightly larger */
+}
+
+.logo img {
+    height: 35px; /* Slightly smaller logo */
+    width: 35px;
+    margin-right: 8px; /* Adjusted margin */
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 35px; /* Increased gap */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+    padding: 8px 0; /* Add more padding */
+    position: relative; /* For underline effect */
+    font-size: 1.05rem; /* Slightly larger font */
+}
+
+.nav-links li a::after { /* Underline effect */
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-out; /* Smoother transition */
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+.nav-links li a:hover {
+    color: var(--primary-color);
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 10px;
+    z-index: 1001; /* Ensure hamburger is above mobile menu */
+}
+
+.hamburger .bar {
+    display: block;
+    width: 28px; /* Slightly larger bars */
+    height: 3px;
+    margin: 6px auto; /* More space between bars */
+    background-color: var(--white);
+    transition: all 0.3s ease-in-out;
+    border-radius: 2px; /* Rounded corners */
+}
+
+/* Hamburger Animation */
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Header scroll effect (optional) */
+header.scrolled {
+    /* Add styles here if header changes on scroll, e.g., background-color */
+}
+
+/* --- Mobile Responsiveness (Header) --- */
+@media (max-width: 768px) {
+    header {
+        height: 60px; /* Adjusted mobile header height */
+        padding: 0 15px; /* Add horizontal padding */
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+    .logo img {
+        height: 30px;
+        width: 30px;
+    }
+
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        /* Adjust top based on mobile header height */
+        top: 60px;
+        background-color: var(--background-color); /* Use background color for menu */
+        flex-direction: column;
+        width: 100%;
+        height: calc(100vh - 60px); /* Full height minus header */
+        text-align: center;
+        transition: right 0.4s ease-in-out; /* Smoother transition */
+        gap: 0;
+        padding: 20px 0; /* Add padding */
+        overflow-y: auto; /* Allow scrolling if menu is too long */
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        padding: 18px 0; /* Adjust padding */
+        width: 100%;
+        border-bottom: 1px solid #222; /* Darker separator */
+    }
+    .nav-links li:last-child {
+        border-bottom: none;
+        margin-top: 15px; /* Adjust margin */
+    }
+    .nav-links li a {
+        font-size: 1.4rem; /* Larger font */
+    }
+    .nav-links li a::after {
+        height: 3px; /* Thicker underline on mobile */
+        background-color: var(--secondary-color); /* Different color for mobile underline */
+    }
+     .nav-links li a:hover::after {
+        width: 50%; /* Shorter underline on mobile hover */
+        left: 25%;
+    }
+
+    .hamburger {
+        display: block;
+        padding: 5px;
+    }
+}

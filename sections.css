@@ -1,0 +1,402 @@
+/* --- Hero Section --- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Adjust padding-top based on header height */
+    padding-top: var(--header-height);
+    background: url('hero-background.png') no-repeat center center/cover;
+    position: relative;
+    overflow: hidden;
+    /* Add subtle gradient overlay to blend with background */
+    background-image: linear-gradient(to bottom, rgba(10, 10, 10, 0.8) 0%, rgba(10, 10, 10, 0.6) 50%, rgba(10, 10, 10, 0.8) 100%), url('hero-background.png');
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Stronger, darker overlay */
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 30px; /* More padding */
+    animation: fadeInScale 1s ease-out forwards; /* Add initial animation */
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+@keyframes fadeInScale {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.hero h1 {
+    font-size: 4rem; /* Larger */
+    font-weight: 800; /* Bolder */
+    margin-bottom: 1.5rem; /* More margin */
+    line-height: 1.1; /* Tighter line height */
+    background: -webkit-linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.4); /* More pronounced shadow */
+}
+
+.hero p {
+    font-size: 1.4rem; /* Larger */
+    max-width: 800px; /* Wider */
+    margin: 0 auto 3rem auto; /* More margin below */
+    color: var(--text-color-dark);
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* Increased gap */
+}
+
+
+/* --- Features Section --- */
+#features {
+     /* Add a subtle radial gradient background */
+    background: radial-gradient(circle at top, rgba(0, 192, 176, 0.05) 0%, rgba(10, 10, 10, 0) 40%);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem; /* Increased gap */
+}
+
+.feature-card {
+    background-color: var(--surface-color);
+    padding: 3rem; /* More padding */
+    border-radius: 16px; /* More rounded corners */
+    border: 1px solid #2a2a2a;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Subtle initial shadow */
+}
+
+.feature-card:hover {
+    transform: translateY(-12px); /* More lift */
+    border-color: var(--primary-color);
+    box-shadow: 0 15px 30px rgba(0, 191, 166, 0.3); /* More prominent shadow on hover */
+}
+
+.feature-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.2rem; /* More margin */
+    font-size: 1.4rem; /* Larger font */
+}
+.feature-card p {
+    color: var(--text-color-dark);
+    font-size: 1.1rem; /* Slightly larger */
+}
+
+/* --- Premium Section --- */
+#premium {
+    background-color: var(--surface-color);
+    padding: 100px 0; /* Ensure padding is consistent */
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem; /* Increased gap */
+    align-items: stretch;
+}
+
+.pricing-card {
+    background-color: var(--background-color);
+    padding: 3.5rem 2.5rem; /* More vertical padding */
+    border-radius: 16px; /* More rounded corners */
+    border: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Subtle initial shadow */
+}
+
+.pricing-card:hover {
+    transform: translateY(-15px); /* More lift */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5); /* Stronger shadow */
+    border-color: var(--primary-color); /* Highlight border */
+}
+
+.pricing-card.popular {
+    border-color: var(--primary-color);
+    transform: translateY(-15px); /* Popular is already lifted */
+    background: linear-gradient(to bottom right, var(--background-color) 60%, rgba(0, 192, 176, 0.1)); /* Subtle gradient */
+    box-shadow: 0 25px 50px rgba(0, 191, 166, 0.4); /* Prominent shadow for popular */
+}
+.pricing-card.popular:hover {
+    transform: translateY(-20px); /* Even more lift on hover for popular */
+    box-shadow: 30px 60px rgba(0, 191, 166, 0.6);
+}
+
+.popular-badge {
+    position: absolute;
+    top: 20px; /* Adjusted position */
+    right: -40px; /* Adjusted position */
+    background: var(--primary-color);
+    color: white;
+    padding: 6px 35px; /* More padding */
+    transform: rotate(45deg);
+    font-size: 1rem; /* Larger font */
+    font-weight: 700;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.4); /* Stronger badge shadow */
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 1px; /* Add letter spacing */
+}
+
+.pricing-card h3 {
+    font-size: 2rem; /* Larger */
+    margin-bottom: 1.5rem;
+    color: var(--white); /* Ensure heading is white */
+}
+
+.price {
+    font-size: 3.5rem; /* Larger */
+    font-weight: 700;
+    margin-bottom: 2.5rem; /* More margin */
+    color: var(--primary-color);
+    text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.price span {
+    font-size: 1.3rem; /* Larger */
+    font-weight: 400;
+    color: var(--text-color-dark);
+}
+
+.pricing-card ul {
+    list-style: none;
+    margin-bottom: 3rem; /* More margin */
+    text-align: left;
+    flex-grow: 1;
+    padding: 0 15px; /* Add more horizontal padding */
+}
+
+.pricing-card li {
+    margin-bottom: 1.2rem; /* More space between items */
+    color: var(--text-color-dark);
+    font-size: 1.15rem; /* Slightly larger text */
+    position: relative; /* For checkmark positioning */
+    padding-left: 30px; /* Make space for custom checkmark */
+}
+
+.pricing-card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px; /* Size of the checkmark area */
+    height: 18px;
+    background-color: var(--primary-color);
+    border-radius: 50%; /* Circular background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Using a pseudo-element for the actual check */
+    mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTS44NyA1LDEwLjI3IDE2LjQzLDIzLjEzIDQiLz48L3N2Zz4='); /* White check SVG */
+    mask-size: 12px; /* Size of the check inside the circle */
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+/* --- Team Section --- */
+#team-section {
+    /* Inherits padding from .section */
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    justify-items: center; /* Center items in the grid */
+}
+
+.team-member-card {
+    background-color: var(--surface-color);
+    padding: 2.5rem 2rem; /* Adjust padding */
+    border-radius: 16px;
+    border: 1px solid #2a2a2a;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    width: 100%; /* Make card take full grid column width */
+    max-width: 350px; /* Max width for larger screens */
+    display: flex; /* Use flex for internal layout */
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-member-card:hover {
+    transform: translateY(-12px);
+    border-color: var(--primary-color);
+    box-shadow: 0 15px 30px rgba(0, 191, 166, 0.3);
+}
+
+.team-member-avatar {
+    width: 120px; /* Avatar size */
+    height: 120px;
+    border-radius: 50%; /* Circular avatar */
+    object-fit: cover;
+    margin-bottom: 1.5rem; /* Space below avatar */
+    border: 3px solid var(--primary-color); /* Highlight border */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Shadow for avatar */
+}
+
+.team-member-card h3 {
+    color: var(--white); /* Ensure heading is white */
+    margin-bottom: 0.5rem;
+    font-size: 1.6rem; /* Adjust font size */
+}
+
+.team-member-role {
+    color: var(--primary-color); /* Highlight role */
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem; /* Space below role */
+}
+
+.team-member-bio {
+    color: var(--text-color-dark);
+    font-size: 1rem;
+    line-height: 1.6;
+    flex-grow: 1; /* Allows bio to take up remaining space */
+}
+
+
+/* --- Mobile Responsiveness (Sections) --- */
+@media (max-width: 768px) {
+    .hero {
+        /* Adjust padding-top based on mobile header height */
+        padding-top: 60px;
+        min-height: 95vh; /* Adjust hero height */
+        /* Remove the radial gradient on mobile for simplicity */
+        background-image: linear-gradient(to bottom, rgba(10, 10, 10, 0.8) 0%, rgba(10, 10, 10, 0.6) 50%, rgba(10, 10, 10, 0.8) 100%), url('hero-background.png');
+    }
+
+    .hero h1 {
+        font-size: 2.5rem; /* Smaller on mobile */
+        margin-bottom: 1rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem; /* Smaller on mobile */
+        margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .section {
+        padding: 60px 0; /* Adjust section padding */
+    }
+
+    .section h2 {
+        font-size: 2.5rem; /* Adjust heading size */
+        margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+        font-size: 1.1rem; /* Adjust subtitle size */
+        margin-bottom: 3rem;
+    }
+
+    .features-grid, .pricing-grid {
+        gap: 2rem; /* Adjust gap */
+    }
+
+    .feature-card, .pricing-card {
+         padding: 2rem; /* Adjust card padding */
+    }
+
+    .feature-card h3 {
+        font-size: 1.3rem;
+    }
+    .feature-card p {
+        font-size: 1rem;
+    }
+
+    .pricing-card h3 {
+        font-size: 1.6rem;
+    }
+    .price {
+        font-size: 2.5rem;
+    }
+     .price span {
+        font-size: 1.1rem;
+    }
+     .pricing-card ul {
+        margin-bottom: 2rem;
+     }
+     .pricing-card li {
+        font-size: 1.05rem;
+        margin-bottom: 1rem;
+        padding-left: 25px;
+    }
+     .pricing-card li::before {
+        width: 16px;
+        height: 16px;
+        mask-size: 10px;
+     }
+
+     .popular-badge {
+        font-size: 0.85rem;
+        padding: 4px 25px;
+        right: -30px;
+     }
+
+     .pricing-card .cta-button {
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+
+    /* Team Section Mobile */
+    .team-grid {
+        gap: 2rem; /* Adjusted gap */
+    }
+
+    .team-member-card {
+        padding: 1.5rem; /* Adjusted padding */
+    }
+
+    .team-member-avatar {
+        width: 100px; /* Slightly smaller avatar */
+        height: 100px;
+        margin-bottom: 1rem;
+    }
+
+    .team-member-card h3 {
+        font-size: 1.4rem; /* Adjusted font size */
+    }
+
+    .team-member-role {
+        font-size: 1rem; /* Adjusted font size */
+        margin-bottom: 1rem;
+    }
+
+    .team-member-bio {
+        font-size: 0.95rem; /* Adjusted font size */
+    }
+}
