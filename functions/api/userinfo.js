@@ -1,3 +1,4 @@
+
 export async function onRequest(context) {
     const url = new URL(context.request.url);
     const userId = url.searchParams.get("user_id");
