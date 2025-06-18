@@ -15,3 +15,4 @@ export async function onRequest({ request, env }) {
   const data = await res.json();
   return Response.json(data);
 }
+//https://zyra-bot.pages.dev/api/channelinfo?id=1828282828272829827
